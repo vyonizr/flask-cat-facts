@@ -24,11 +24,14 @@ html {
 
 a {
   color: white;
-  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.no-decoration {
+  text-decoration: none;
 }
 
 #footer {
