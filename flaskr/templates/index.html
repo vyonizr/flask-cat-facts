@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/pure-min.css') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}"">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='images/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ url_for('static', filename='images/safari-pinned-tab.svg') }}" color="#5bbad5">
     <title>Random Cat Facts</title>
@@ -30,8 +30,8 @@
       </div>
     </div>
   </body>
-
   <script>
+    const baseURL = window.location.href
     const catFactP = document.getElementById("cat-fact")
     const nextButton = document.getElementById("next-button")
     const footer = document.getElementById("footer")
@@ -39,16 +39,21 @@
     footer.innerHTML = `© ${new Date().getFullYear()} vyonizr<br><a href="https://github.com/alexwohlbruck/cat-facts" target="_blank" rel="noopener">cat facts API</a> | <a href="https://purecss.io/" target="_blank" rel="noopener">Pure</a>`
 
     const fetchCatFact = async () => {
-      catFactP.innerHTML = "Loading..."
-      nextButton.classList.remove("pure-button-primary")
-      nextButton.classList.add("pure-button-disabled")
+      try {
+        catFactP.innerHTML = "Loading..."
+        nextButton.classList.remove("pure-button-primary")
+        nextButton.classList.add("pure-button-disabled")
 
-      const response = await fetch(`${window.location.href}api/cats/`)
-      const json = await response.json()
+        const response = await fetch(`${baseURL}api/cats/`)
+        const json = await response.json()
 
-      catFactP.innerHTML = json.text
-      nextButton.classList.remove("pure-button-disabled")
-      nextButton.classList.add("pure-button-primary")
+        catFactP.innerHTML = json.text
+        nextButton.classList.remove("pure-button-disabled")
+        nextButton.classList.add("pure-button-primary")
+      }
+      catch {
+        catFactP.innerHTML = "Ouch! Something went wrong. Please reload the page."
+      }
     }
 
     fetchCatFact()
