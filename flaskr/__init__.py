@@ -15,3 +15,7 @@ def main():
 def catFacts():
   resp = requests.get('https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=1')
   return json.loads(resp.text)
+
+@app.errorhandler(404)
+def page_not_found(e):
+  return render_template('404.html'), 404
