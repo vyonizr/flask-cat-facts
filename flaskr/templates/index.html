@@ -43,7 +43,7 @@
       nextButton.classList.remove("pure-button-primary")
       nextButton.classList.add("pure-button-disabled")
 
-      const response = await fetch("http://localhost:5000/api/cats/")
+      const response = await fetch(`${window.location.href}api/cats/`)
       const json = await response.json()
 
       catFactP.innerHTML = json.text

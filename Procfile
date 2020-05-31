@@ -1,1 +1,1 @@
-worker: gunicorn --bind 0.0.0.0:5000 flaskr:app
+web: gunicorn --bind $HOST:$PORT flaskr:app
