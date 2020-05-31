@@ -1,1 +1,1 @@
-gunicorn 127.0.0.1:5000 --chdir flaskr
+worker: gunicorn --bind 0.0.0.0:5000 flaskr:app
