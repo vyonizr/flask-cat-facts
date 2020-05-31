@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 {% block title %}Random Cat Facts{% endblock %}
 {% block content %}
+<img src="https://img.icons8.com/bubbles/100/000000/cat.png"/>
 <h1 class="chelsea-market">Random Cat Facts</h1>
 <p id="cat-fact" class="chelsea-market"></p>
 <button id="next-button" class="pure-button pure-button-primary" onclick="fetchCatFact()">Next</button>
@@ -14,7 +15,7 @@
   const nextButton = document.getElementById("next-button")
   const footer = document.getElementById("footer")
 
-  footer.innerHTML = `© ${new Date().getFullYear()} <a href="https://github.com/vyonizr/flask-cat-facts" target="_blank" rel="noopener">vyonizr</a><br><a href="https://github.com/alexwohlbruck/cat-facts" target="_blank" rel="noopener">cat facts API</a> | <a href="https://purecss.io/" target="_blank" rel="noopener">Pure</a>`
+  footer.innerHTML = `© ${new Date().getFullYear()} <a href="https://github.com/vyonizr/flask-cat-facts" target="_blank" rel="noopener">vyonizr</a><br><a href="https://github.com/alexwohlbruck/cat-facts" target="_blank" rel="noopener">Cat facts API by alexwohlbruck</a><br><a href="https://icons8.com/icon/tgLepcPbp6mP/cat" target="_blank" rel="noopener">Cat icon by Icons8</a>`
 
   const fetchCatFact = async () => {
     try {
