@@ -13,13 +13,13 @@ html {
 }
 
 .facts-container {
+  height: 100%;
   width: 20rem;
   text-align: center;
 }
 
-.facts-container {
-  width: 20rem;
-  text-align: center;
+.facts-container img {
+  padding-top: 30%;
 }
 
 a {
